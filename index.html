@@ -385,6 +385,216 @@
       </div>
     </section>
 
+    <!-- Pricing Section -->
+
+    <section
+      class="relative overflow-hidden bg-[#fffefb] py-16 sm:py-14 px-5 sm:px-8 lg:px-14"
+    >
+      <div
+        class="dot-grid absolute bottom-10 right-0 w-40 h-40 opacity-60 -z-10"
+      ></div>
+      <div
+        class="absolute -bottom-32 -left-24 w-72 h-72 rounded-full blob -z-10"
+      ></div>
+
+      <div class="text-center max-w-2xl mx-auto mb-14 pricing-fade">
+        <div
+          class="inline-flex items-center gap-2 bg-[#eaf6f0] text-[#0b6100] text-[12px] font-medium px-4 py-1.5 rounded-full mb-5 border border-[#cfe7dd]"
+        >
+          <i class="ti ti-tag text-[14px]"></i> Simple, transparent pricing
+        </div>
+        <h2
+          class="font-heading text-[#173404] text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.15] mb-4 tracking-tight"
+        >
+          Choose a plan that
+          <span class="text-[#0b6100]">fits your ride.</span>
+        </h2>
+        <p class="text-[#5f5e5a] text-[15px] leading-7 max-w-md mx-auto">
+          No hidden charges, no long-term lock-in. Pick hourly, daily, weekly or
+          monthly — switch anytime.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="plan-card pricing-fade bg-white border border-[#e3e0d5] rounded-2xl p-7 flex flex-col"
+          style="animation-delay: 0.05s"
+        >
+          <div
+            class="w-11 h-11 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100] mb-5"
+          >
+            <img class="w-4.5" src="./images/time.png" alt="" />
+          </div>
+          <p class="text-[13px] text-[#8b9286] mb-1">Hourly</p>
+          <p class="font-heading text-[#173404] text-[32px] mb-1">
+            ₹49<span class="text-[14px] font-sans text-[#8b9286] font-normal"
+              >/hr</span
+            >
+          </p>
+          <p class="text-[12px] text-[#8b9286] mb-6">Best for quick errands</p>
+
+          <ul class="flex flex-col gap-3 text-[13px] text-[#3a3a36] mb-8">
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> Pay as you ride
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> No license required
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> Free helmet
+            </li>
+            <li class="flex items-center gap-2 text-[#c3c8c0]">
+              <i class="ti ti-x text-[#c3c8c0]"></i> Free home delivery
+            </li>
+          </ul>
+
+          <button
+            class="plan-btn mt-auto border border-[#e0ddd0] text-[#2c2c2a] rounded-full py-3 text-[13px] font-medium hover:bg-[#f5f4ef]"
+          >
+            Choose plan
+          </button>
+        </div>
+
+        <!-- Daily -->
+        <div
+          class="plan-card pricing-fade bg-white border border-[#e3e0d5] rounded-2xl p-7 flex flex-col"
+          style="animation-delay: 0.15s"
+        >
+          <div
+            class="w-11 h-11 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100] mb-5"
+          >
+            <img class="w-5" src="./images/sun.png" alt="" />
+          </div>
+          <p class="text-[13px] text-[#8b9286] mb-1">Daily</p>
+          <p class="font-heading text-[#173404] text-[32px] mb-1">
+            ₹299<span class="text-[14px] font-sans text-[#8b9286] font-normal"
+              >/day</span
+            >
+          </p>
+          <p class="text-[12px] text-[#8b9286] mb-6">
+            Great for full-day trips
+          </p>
+
+          <ul class="flex flex-col gap-3 text-[13px] text-[#3a3a36] mb-8">
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> Unlimited km/day
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> No license required
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> Free helmet
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> 24/7 roadside support
+            </li>
+          </ul>
+
+          <button
+            class="plan-btn mt-auto border border-[#e0ddd0] text-[#2c2c2a] rounded-full py-3 text-[13px] font-medium hover:bg-[#f5f4ef]"
+          >
+            Choose plan
+          </button>
+        </div>
+
+        <div
+          class="plan-card popular pricing-fade relative bg-[#0b6100] border border-[#0b6100] rounded-2xl p-7 flex flex-col text-white"
+          style="animation-delay: 0.25s"
+        >
+          <span
+            class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-white text-[#0b6100] text-[11px] font-semibold px-4 py-1.5 rounded-full shadow-md"
+          >
+            Most popular
+          </span>
+          <div
+            class="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center text-white mb-5"
+          >
+            <img class="w-5 invert-100" src="./images/calendar.png" alt="" />
+          </div>
+          <p class="text-[13px] text-white/70 mb-1">Weekly</p>
+          <p class="font-heading text-[32px] mb-1">
+            ₹1,299<span class="text-[14px] font-sans text-white/70 font-normal"
+              >/week</span
+            >
+          </p>
+          <p class="text-[12px] text-white/70 mb-6">
+            Ideal for delivery & daily commute
+          </p>
+
+          <ul class="flex flex-col gap-3 text-[13px] mb-8">
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check"></i> Unlimited km
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check"></i> Free maintenance
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check"></i> GPS tracked scooty
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check"></i> Free home delivery
+            </li>
+          </ul>
+
+          <button
+            class="plan-btn mt-auto bg-white text-[#0b6100] rounded-full py-3 text-[13px] font-semibold hover:bg-[#eaf6f0]"
+          >
+            Choose plan
+          </button>
+        </div>
+
+        <!-- Monthly -->
+        <div
+          class="plan-card pricing-fade bg-white border border-[#e3e0d5] rounded-2xl p-7 flex flex-col"
+          style="animation-delay: 0.35s"
+        >
+          <div
+            class="w-11 h-11 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100] mb-5"
+          >
+            <img class="w-5" src="./images/calendar.png" alt="" />
+          </div>
+          <p class="text-[13px] text-[#8b9286] mb-1">Monthly</p>
+          <p class="font-heading text-[#173404] text-[32px] mb-1">
+            ₹3,999<span class="text-[14px] font-sans text-[#8b9286] font-normal"
+              >/month</span
+            >
+          </p>
+          <p class="text-[12px] text-[#8b9286] mb-6">
+            Best value, save up to 25%
+          </p>
+
+          <ul class="flex flex-col gap-3 text-[13px] text-[#3a3a36] mb-8">
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> Unlimited km
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> Free maintenance
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> GPS tracked scooty
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ti ti-check text-[#0b6100]"></i> Free home delivery
+            </li>
+          </ul>
+
+          <button
+            class="plan-btn mt-auto border border-[#e0ddd0] text-[#2c2c2a] rounded-full py-3 text-[13px] font-medium hover:bg-[#f5f4ef]"
+          >
+            Choose plan
+          </button>
+        </div>
+      </div>
+
+      <p
+        class="text-center text-[12px] text-[#8b9286] mt-10 flex items-center justify-center gap-1.5 pricing-fade"
+        style="animation-delay: 0.45s"
+      >
+        <i class="ti ti-shield-check text-[#0b6100] text-[13px]"></i>
+        Refundable security deposit applies on all plans. No hidden charges.
+      </p>
+    </section>
+
     <a
       href="https://wa.me/917042470564?text=Hi%20Evigo%2C%20I%20want%20to%20rent%20a%20scooty."
       target="_blank"
