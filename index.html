@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Evigo Header</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link
@@ -16,13 +17,23 @@
 
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body>
+  <body class="overflow-x-hidden">
     <header
-      class="header-wrap px-14 w-full bg-white py-6 flex items-center justify-between relative"
+      class="header-wrap px-5 sm:px-8 lg:px-14 w-full bg-white py-4 lg:py-6 flex items-center justify-between relative"
     >
       <div class="flex items-center gap-8">
+        <button
+          id="menuBtn"
+          class="hamburger md:hidden flex flex-col justify-center gap-[5px] w-9 h-9"
+          aria-label="Open menu"
+        >
+          <span class="block w-6 h-[2px] bg-[#173404] rounded-full"></span>
+          <span class="block w-6 h-[2px] bg-[#173404] rounded-full"></span>
+          <span class="block w-6 h-[2px] bg-[#173404] rounded-full"></span>
+        </button>
+
         <nav
-          class="hidden md:flex items-center gap-10 text-[14px] tracking-wide text-black/80"
+          class="hidden md:flex items-center gap-7 lg:gap-10 text-[14px] tracking-wide text-black/80"
         >
           <a href="#" class="nav-link cursor-pointer">About</a>
           <a href="#" class="nav-link cursor-pointer">Plans</a>
@@ -36,29 +47,19 @@
           <img
             src="./images/logo.png"
             alt="Evigo - Green Drive Mobility"
-            class="h-12 w-auto select-none"
+            class="h-9 sm:h-11 lg:h-12 w-auto select-none"
           />
         </a>
       </div>
 
-      <div class="flex items-center gap-3">
-        <!-- <div
-          class="icon-btn w-9 h-9 rounded-md bg-[#f1efe8] text-[#2c2c2a] flex items-center justify-center text-[15px] cursor-pointer"
-        >
-          <i class="ti ti-moon"></i>
-        </div> -->
+      <div class="flex items-center gap-2 sm:gap-3">
         <button
           class="contact-btn hidden sm:inline-flex border border-[#e0ddd0] rounded-full px-5 py-2.5 text-[13px] font-medium text-[#2c2c2a] bg-white cursor-pointer tracking-wide"
         >
           Contact us
         </button>
-        <!-- <div
-          class="icon-btn w-9 h-9 rounded-md bg-[#f1efe8] text-[#2c2c2a] flex items-center justify-center text-[15px] cursor-pointer"
-        >
-          <i class="ti ti-bell"></i>
-        </div> -->
         <button
-          class="cart-btn flex items-center gap-2.5 border border-[#e0ddd0] rounded-full pl-4 pr-1.5 py-1.5 text-[13px] font-medium text-[#2c2c2a] bg-white cursor-pointer"
+          class="cart-btn flex items-center gap-2.5 border border-[#e0ddd0] rounded-full lg:pl-3 pl-1.5 sm:pl-4 pr-1.5 py-1.5 text-[13px] font-medium text-[#2c2c2a] bg-white cursor-pointer"
         >
           <span class="hidden sm:inline">Book ride</span>
           <span
@@ -70,6 +71,57 @@
       </div>
     </header>
 
+    <div
+      id="mobileOverlay"
+      class="fixed inset-0 bg-black/40 z-40 opacity-0 pointer-events-none md:hidden"
+    ></div>
+
+    <aside
+      id="mobileSidebar"
+      class="fixed top-0 left-0 h-full w-[78%] max-w-[300px] bg-white z-50 -translate-x-full md:hidden flex flex-col"
+    >
+      <div
+        class="flex items-center justify-between px-6 py-5 border-b border-[#eee]"
+      >
+        <img src="./images/logo.png" alt="Evigo" class="h-8 w-auto" />
+        <button
+          id="closeMenuBtn"
+          aria-label="Close menu"
+          class="w-8 h-8 flex items-center justify-center"
+        >
+          <i class="ti ti-x text-[20px] text-[#173404]"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col py-3">
+        <a href="#" class="sidebar-link px-6 py-3.5 text-[15px] text-[#2c2c2a]"
+          >About</a
+        >
+        <a href="#" class="sidebar-link px-6 py-3.5 text-[15px] text-[#2c2c2a]"
+          >Plans</a
+        >
+        <a href="#" class="sidebar-link px-6 py-3.5 text-[15px] text-[#2c2c2a]"
+          >Locations</a
+        >
+        <a href="#" class="sidebar-link px-6 py-3.5 text-[15px] text-[#2c2c2a]"
+          >Support</a
+        >
+      </nav>
+
+      <div class="mt-auto px-6 py-6 border-t border-[#eee] flex flex-col gap-3">
+        <button
+          class="contact-btn border border-[#e0ddd0] rounded-full px-5 py-3 text-[13px] font-medium text-[#2c2c2a] bg-white"
+        >
+          Contact us
+        </button>
+        <button
+          class="bg-[#0b6100] text-white rounded-full px-5 py-3 text-[13px] font-medium flex items-center justify-center gap-2"
+        >
+          Book a ride <i class="ti ti-arrow-right"></i>
+        </button>
+      </div>
+    </aside>
+
     <!-- Hero Section -->
     <section class="relative overflow-hidden">
       <div
@@ -80,11 +132,14 @@
       ></div>
 
       <div
-        class="px-14 pt-10 pb-12 grid grid-cols-1 md:grid-cols-2 items-center gap-12"
+        class="px-5 sm:px-8 lg:px-14 pt-8 sm:pt-10 pb-10 lg:pb-12 grid grid-cols-1 md:grid-cols-2 items-center gap-5 lg:gap-12"
       >
-        <div class="fade-up mt-10" style="animation-delay: 0.05s">
+        <div
+          class="fade-up md:mt-10 text-center md:text-left"
+          style="animation-delay: 0.05s"
+        >
           <h1
-            class="font-heading text-[#173404] text-5xl md:text-[64px] leading-[1.1] mb-5 tracking-tight"
+            class="font-heading text-[#173404] text-[36px] sm:text-5xl md:text-[56px] lg:text-[64px] leading-[1.15] md:leading-[1.1] mb-5 tracking-tight"
           >
             Rent a scooty.
             <br />
@@ -107,41 +162,57 @@
             </span>
           </h1>
 
-          <p class="text-[#5f5e5a] text-[16px] leading-7 max-w-md mb-6">
+          <p
+            class="text-[#5f5e5a] text-[14px] sm:text-[16px] leading-6 max-w-md mx-auto md:mx-0 mb-6"
+          >
             Book an electric scooty by the hour, day, or month. No fuel, no
             hassle — just unlock, ride, and drop it off wherever your trip ends.
           </p>
 
-          <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mb-9">
-            <div class="flex items-center gap-2 text-[13px] text-[#3a3a36]">
+          <div
+            class="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-3 mb-9"
+          >
+            <div
+              class="flex items-center gap-2 text-[11px] md:text-[13px] text-[#3a3a36]"
+            >
               <span
-                class="w-7 h-7 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
+                class="md:w-7 md:h-7 w-5 h-5 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
               >
-                <img class="w-4" src="./images/placeholder.png" alt="" />
+                <img class="md:w-4 w-3" src="./images/placeholder.png" alt="" />
               </span>
               120+ pickup points
             </div>
-            <div class="flex items-center gap-2 text-[13px] text-[#3a3a36]">
+            <div
+              class="flex items-center gap-2 text-[11px] md:text-[13px] text-[#3a3a36]"
+            >
               <span
-                class="w-7 h-7 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
+                class="md:w-7 md:h-7 w-5 h-5 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
               >
-                <img class="w-4.5" src="./images/calendar.png" alt="" />
+                <img
+                  class="md:w-4.5 w-3.5"
+                  src="./images/calendar.png"
+                  alt=""
+                />
               </span>
               Hourly & daily plans
             </div>
-            <div class="flex items-center gap-2 text-[13px] text-[#3a3a36]">
+            <div
+              class="flex items-center gap-2 text-[11px] md:text-[13px] text-[#3a3a36]"
+            >
               <span
-                class="w-7 h-7 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
+                class="md:w-7 md:h-7 w-5 h-5 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
               >
-                <img class="w-4" src="./images/headset.png" alt="" />
+                <img class="md:w-4 w-3" src="./images/headset.png" alt="" />
               </span>
               24/7 roadside support
             </div>
           </div>
 
-          <div class="flex flex-wrap items-center gap-4 mb-10">
+          <div
+            class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-10"
+          >
             <button
-              class="btn-primary cursor-pointer group relative flex items-center gap-3 bg-[#0b6100] text-white rounded-full pl-7 pr-2.5 py-2.5 text-[13px] font-medium border border-[#0b6100] shadow-[0_8px_20px_rgba(11,97,0,0.25)] overflow-hidden"
+              class="btn-primary cursor-pointer group relative flex items-center gap-3 bg-[#0b6100] text-white rounded-full pl-7 pr-2 lg:pr-2.5 py-2 lg:py-2.5 text-[13px] font-medium border border-[#0b6100] shadow-[0_8px_20px_rgba(11,97,0,0.25)] overflow-hidden"
             >
               <span class="relative z-10">Book a scooty</span>
               <span
@@ -157,50 +228,60 @@
         </div>
 
         <div
-          class="relative flex items-center justify-center fade-up"
+          class="relative flex items-center justify-center fade-up mt-4 md:mt-0"
           style="animation-delay: 0.25s"
         >
-          <div class="blob absolute w-[420px] h-[420px] rounded-full"></div>
+          <div
+            class="blob absolute w-[260px] h-[260px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] rounded-full"
+          ></div>
 
           <div
-            class="float-slow relative w-[480px] h-[480px] md:w-[600px] md:h-[600px] rounded-[28px] flex flex-col items-center justify-center text-center"
+            class="float-slow relative w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] md:w-[480px] md:h-[480px] lg:w-[600px] lg:h-[600px] rounded-[28px] flex flex-col items-center justify-center text-center"
           >
             <img class="w-full" src="./images/scooty.png" alt="" />
           </div>
 
           <div
-            class="absolute bottom-0 left-4 md:left-0 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] px-4 py-3 flex items-center gap-3 fade-up"
+            class="absolute bottom-2 left-1 sm:left-4 md:left-0 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] px-3 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3 fade-up"
             style="animation-delay: 0.5s"
           >
             <div
-              class="w-9 h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
+              class="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
             >
-              <img class="w-5" src="./images/electricity.png" alt="" />
+              <img class="w-4 sm:w-5" src="./images/electricity.png" alt="" />
             </div>
             <div class="text-left">
-              <p class="text-[12px] font-medium text-[#173404] leading-tight">
+              <p
+                class="text-[11px] sm:text-[12px] font-medium text-[#173404] leading-tight"
+              >
                 Full charge
               </p>
-              <p class="text-[11px] text-[#5f5e5a] leading-tight">
+              <p
+                class="text-[10px] sm:text-[11px] text-[#5f5e5a] leading-tight"
+              >
                 80 km range
               </p>
             </div>
           </div>
 
           <div
-            class="absolute top-30 right-2 md:right-6 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] px-4 py-3 flex items-center gap-3 fade-up"
+            class="absolute top-4 sm:top-10 md:top-30 right-1 sm:right-2 md:right-6 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] px-3 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3 fade-up"
             style="animation-delay: 0.65s"
           >
             <div
-              class="w-9 h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
+              class="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center text-[#0b6100]"
             >
-              <img class="w-4" src="./images/star.png" alt="" />
+              <img class="w-3.5 sm:w-4" src="./images/star.png" alt="" />
             </div>
             <div class="text-left">
-              <p class="text-[12px] font-medium text-[#173404] leading-tight">
+              <p
+                class="text-[11px] sm:text-[12px] font-medium text-[#173404] leading-tight"
+              >
                 4.9 rating
               </p>
-              <p class="text-[11px] text-[#5f5e5a] leading-tight">
+              <p
+                class="text-[10px] sm:text-[11px] text-[#5f5e5a] leading-tight"
+              >
                 2,300+ reviews
               </p>
             </div>
@@ -209,17 +290,17 @@
       </div>
 
       <div
-        class="max-w-5xl mx-auto px-7 pb-20 fade-up"
+        class="max-w-6xl mx-auto px-5 sm:px-7 pb-14 sm:pb-20 fade-up"
         style="animation-delay: 0.4s"
       >
         <div
           class="relative bg-white border border-[#e3e0d5] rounded-2xl shadow-[0_14px_36px_rgba(0,0,0,0.07)] px-2 py-2 sm:px-3 sm:py-3 flex flex-col sm:flex-row items-stretch gap-1"
         >
           <div
-            class="flex-1 flex items-center gap-3 px-5 py-3.5 rounded-xl transition-colors hover:bg-[#f7f9f7]"
+            class="flex-1 flex items-center gap-3 px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl transition-colors hover:bg-[#f7f9f7]"
           >
             <span
-              class="w-9 h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center shrink-0"
+              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center shrink-0"
             >
               <img class="w-4" src="./images/placeholder.png" alt="" />
             </span>
@@ -238,12 +319,13 @@
           </div>
 
           <div class="hidden sm:block w-px bg-[#eceae2] my-3"></div>
+          <div class="block sm:hidden h-px bg-[#eceae2] mx-4"></div>
 
           <div
-            class="flex-1 flex items-center gap-3 px-5 py-3.5 rounded-xl transition-colors hover:bg-[#f7f9f7]"
+            class="flex-1 flex items-center gap-3 px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl transition-colors hover:bg-[#f7f9f7]"
           >
             <span
-              class="w-9 h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center shrink-0"
+              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center shrink-0"
             >
               <img class="w-4" src="./images/placeholder.png" alt="" />
             </span>
@@ -262,12 +344,13 @@
           </div>
 
           <div class="hidden sm:block w-px bg-[#eceae2] my-3"></div>
+          <div class="block sm:hidden h-px bg-[#eceae2] mx-4"></div>
 
           <div
-            class="flex-1 flex items-center gap-3 px-5 py-3.5 rounded-xl transition-colors hover:bg-[#f7f9f7]"
+            class="flex-1 flex items-center gap-3 px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl transition-colors hover:bg-[#f7f9f7]"
           >
             <span
-              class="w-9 h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center shrink-0"
+              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#eaf6f0] flex items-center justify-center shrink-0"
             >
               <img class="w-4" src="./images/calendar.png" alt="" />
             </span>
@@ -285,7 +368,7 @@
           </div>
 
           <button
-            class="btn-primary cursor-pointer group shrink-0 bg-[#0b6100] text-white rounded-xl px-12 py- text-[14px] font-medium flex items-center justify-center gap-2 m-1 transition-transform hover:scale-[1.02]"
+            class="btn-primary cursor-pointer group shrink-0 bg-[#0b6100] text-white rounded-xl px-8 sm:px-12 py-3.5 text-[14px] font-medium flex items-center justify-center gap-2 m-1 transition-transform hover:scale-[1.02]"
           >
             Find a ride
           </button>
@@ -299,5 +382,7 @@
         </p>
       </div>
     </section>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
