@@ -4,6 +4,8 @@ const sidebar = document.getElementById("mobileSidebar");
 const overlay = document.getElementById("mobileOverlay");
 
 function openMenu() {
+  console.log("Menu Open ");
+
   sidebar.style.transform = "translateX(0)";
   overlay.classList.remove("opacity-0", "pointer-events-none");
   overlay.classList.add("opacity-100");
