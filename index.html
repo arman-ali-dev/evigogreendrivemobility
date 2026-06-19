@@ -27,9 +27,7 @@
           class="hamburger md:hidden flex flex-col justify-center gap-[5px] w-9 h-9"
           aria-label="Open menu"
         >
-          <span class="block w-6 h-[2px] bg-[#173404] rounded-full"></span>
-          <span class="block w-6 h-[2px] bg-[#173404] rounded-full"></span>
-          <span class="block w-6 h-[2px] bg-[#173404] rounded-full"></span>
+          <img class="w-6" src="./images/menu.png" alt="" />
         </button>
 
         <nav
@@ -75,10 +73,14 @@
       id="mobileOverlay"
       class="fixed inset-0 bg-black/40 z-40 opacity-0 pointer-events-none md:hidden"
     ></div>
-
     <aside
       id="mobileSidebar"
-      class="fixed top-0 left-0 h-full w-[78%] max-w-[300px] bg-white z-50 -translate-x-full md:hidden flex flex-col"
+      class="fixed top-0 left-0 h-full w-[78%] max-w-[300px] bg-white z-50 md:hidden flex flex-col"
+      style="
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+      "
     >
       <div
         class="flex items-center justify-between px-6 py-5 border-b border-[#eee]"
@@ -382,6 +384,20 @@
         </p>
       </div>
     </section>
+
+    <a
+      href="https://wa.me/917042470564?text=Hi%20Evigo%2C%20I%20want%20to%20rent%20a%20scooty."
+      target="_blank"
+      rel="noopener noreferrer"
+      id="whatsappBtn"
+      class="fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-[60] w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-[0_8px_24px_rgba(37,211,102,0.45)]"
+      aria-label="Chat on WhatsApp"
+    >
+      <span
+        class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-40"
+      ></span>
+      <img class="md:w-7 w-5" src="./images/whatsapp.png" alt="" />
+    </a>
 
     <script src="./js/script.js"></script>
   </body>

@@ -4,15 +4,19 @@ const sidebar = document.getElementById("mobileSidebar");
 const overlay = document.getElementById("mobileOverlay");
 
 function openMenu() {
-  sidebar.classList.remove("-translate-x-full");
+  sidebar.style.transform = "translateX(0)";
   overlay.classList.remove("opacity-0", "pointer-events-none");
   overlay.classList.add("opacity-100");
   menuBtn.classList.add("is-open");
   document.body.style.overflow = "hidden";
+
+  // stagger-in nav links
+  setTimeout(() => sidebar.classList.add("is-open"), 50);
 }
 
 function closeMenu() {
-  sidebar.classList.add("-translate-x-full");
+  sidebar.style.transform = "translateX(-100%)";
+  sidebar.classList.remove("is-open");
   overlay.classList.add("opacity-0", "pointer-events-none");
   overlay.classList.remove("opacity-100");
   menuBtn.classList.remove("is-open");
@@ -22,3 +26,7 @@ function closeMenu() {
 menuBtn.addEventListener("click", openMenu);
 closeMenuBtn.addEventListener("click", closeMenu);
 overlay.addEventListener("click", closeMenu);
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeMenu();
+});

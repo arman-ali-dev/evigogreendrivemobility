@@ -225,19 +225,41 @@ body {
   transition: opacity 0.35s ease;
 }
 #mobileSidebar {
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
 }
 .sidebar-link {
   transition:
     background 0.2s ease,
     color 0.2s ease,
-    padding-left 0.2s ease;
+    padding-left 0.2s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  opacity: 0;
+  transform: translateX(-16px);
 }
 .sidebar-link:hover {
   background: #eaf6f0;
   color: #0b6100;
   padding-left: 22px;
 }
+#mobileSidebar.is-open .sidebar-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+#mobileSidebar.is-open .sidebar-link:nth-child(1) {
+  transition-delay: 0.1s;
+}
+#mobileSidebar.is-open .sidebar-link:nth-child(2) {
+  transition-delay: 0.16s;
+}
+#mobileSidebar.is-open .sidebar-link:nth-child(3) {
+  transition-delay: 0.22s;
+}
+#mobileSidebar.is-open .sidebar-link:nth-child(4) {
+  transition-delay: 0.28s;
+}
+
 .hamburger span {
   transition:
     transform 0.3s ease,
